@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Controle de Velocidade</title>
+</head>
+<body>
+
+    <h1>Verificador de Multa</h1>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/854/854894.png"
+         alt="Radar" width="100">
+
+    <br><br>
+
+    <label>Velocidade Permitida:</label>
+    <input type="number" id="permitida">
+
+    <br><br>
+
+    <label>Velocidade do Condutor:</label>
+    <input type="number" id="condutor">
+
+    <br><br>
+
+    <button onclick="verificar()">Verificar</button>
+
+    <h2 id="resultado"></h2>
+
+    <script>
+        function verificar() {
+
+            let permitida = Number(document.getElementById("permitida").value);
+            let condutor = Number(document.getElementById("condutor").value);
+
+            let limiteLeve = permitida * 1.2;
+
+            if (condutor <= permitida) {
+                document.getElementById("resultado").innerHTML =
+                    "Sem Multa";
+            }
+            else if (condutor <= limiteLeve) {
+                document.getElementById("resultado").innerHTML =
+                    "Multa Leve";
+            }
+            else {
+                document.getElementById("resultado").innerHTML =
+                    "Multa Grave";
+            }
+        }
+    </script>
+
+</body>
+</html>
